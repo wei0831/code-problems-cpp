@@ -1,11 +1,11 @@
 # Objects
 OUTPUT_FOLDER=bin
 DRIVER=main.cpp
-OBJS=
+OBJS=union_find_v1.cpp union_find_v2.cpp
 
 # Compilers
 GCC=g++-6
-GCC_FLAGS=-g -pedantic -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wnon-virtual-dtor -Wctor-dtor-privacy -Wreorder
+GCC_FLAGS=-g -pedantic -Werror -Wall -Wextra -Weffc++ -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Wnon-virtual-dtor -Wctor-dtor-privacy -Wreorder
 GCC_OUTPUT=gcc0
 
 CLANG=clang++-3.8
@@ -15,7 +15,7 @@ CLANG_OUTPUT=clang0
 
 # Mem Check
 VALGRIND=valgrind
-VALGRIND_FLAGS=--tool=memcheck --leak-check=full
+VALGRIND_FLAGS=-q --tool=memcheck --leak-check=full
 
 # Tasks
 gcc:
