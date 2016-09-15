@@ -2,6 +2,26 @@
 #include <iostream>
 #include "algorithm.h"
 
+
+/**
+ *             | In-Place | Stable |  Worst  |  Average  |   Best   |
+ * Selection        O         X       N^2 /2     N^2 /2      N^2 /2     
+ * 
+ * Insertion        O         O       N^2 /2     N^2 /4      N
+ *  
+ * Shell            O         X       N/A        N/A         N
+ * 
+ * Merge            X         O       NlogN      NlogN       NlogN
+ * 
+ * 3Way Merge       O         X       N^2 /2     2NlnN       N
+ * 
+ * Quick            O         X       N^2 /2     2NlnN       NlogN
+ * 
+ * Heap             O         X       2NlogN     2NlogN      NlogN
+ * 
+ * */
+ 
+ 
 void initArray(int *, int);
 void sortArray(int *, int, const char *, void (*)(int *, int));
 void printArray(int *, int);
