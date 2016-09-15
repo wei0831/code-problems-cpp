@@ -9,37 +9,53 @@ int main() {
     const int size = 101;
     int ar[size];
     
-    std::cout << "===SelectionSort===" << std::endl;
+    // std::cout << "===SelectionSort===" << std::endl;
+    // initArray(ar, size);
+    // std::cout << "SelectionSort:: Original Array" << std::endl;
+    // printArray(ar, size);
+    // Algorithm::SelectionSort(ar, size);
+    // std::cout << "SelectionSort:: Sorted Array" << std::endl;
+    // printArray(ar, size);
+    
+    // std::cout << "===InsertionSort===" << std::endl;
+    // initArray(ar, size);
+    // std::cout << "InsertionSort:: Original Array" << std::endl;
+    // printArray(ar, size);
+    // Algorithm::InsertionSort(ar, size);
+    // std::cout << "InsertionSort:: Sorted Array" << std::endl;
+    // printArray(ar, size);
+    
+    
+    // std::cout << "===ShellSort===" << std::endl;
+    // initArray(ar, size);
+    // std::cout << "ShellSort:: Original Array" << std::endl;
+    // printArray(ar, size);
+    // Algorithm::ShellSort(ar, size);
+    // std::cout << "ShellSort:: Sorted Array" << std::endl;
+    // printArray(ar, size);
+    
+    // std::cout << "===MergeSort===" << std::endl;
+    // initArray(ar, size);
+    // std::cout << "MergeSort:: Original Array" << std::endl;
+    // printArray(ar, size);
+    // Algorithm::MergeSort(ar, size);
+    // std::cout << "MergeSort:: Sorted Array" << std::endl;
+    // printArray(ar, size);
+    
+    std::cout << "===MergeSort_BottomUp===" << std::endl;
     initArray(ar, size);
-    std::cout << "SelectionSort:: Original Array" << std::endl;
+    std::cout << "MergeSort_BottomUp:: Original Array" << std::endl;
     printArray(ar, size);
-    Algorithm::SelectionSort(ar, size);
-    std::cout << "SelectionSort:: Sorted Array" << std::endl;
+    Algorithm::MergeSort_BottomUp(ar, size);
+    std::cout << "MergeSort_BottomUp:: Sorted Array" << std::endl;
     printArray(ar, size);
     
-    std::cout << "===InsertionSort===" << std::endl;
+    std::cout << "===QuickSort===" << std::endl;
     initArray(ar, size);
-    std::cout << "InsertionSort:: Original Array" << std::endl;
+    std::cout << "QuickSort:: Original Array" << std::endl;
     printArray(ar, size);
-    Algorithm::InsertionSort(ar, size);
-    std::cout << "InsertionSort:: Sorted Array" << std::endl;
-    printArray(ar, size);
-    
-    
-    std::cout << "===ShellSort===" << std::endl;
-    initArray(ar, size);
-    std::cout << "ShellSort:: Original Array" << std::endl;
-    printArray(ar, size);
-    Algorithm::ShellSort(ar, size);
-    std::cout << "ShellSort:: Sorted Array" << std::endl;
-    printArray(ar, size);
-    
-    std::cout << "===MergeSort===" << std::endl;
-    initArray(ar, size);
-    std::cout << "MergeSort:: Original Array" << std::endl;
-    printArray(ar, size);
-    Algorithm::MergeSort(ar, size);
-    std::cout << "MergeSort:: Sorted Array" << std::endl;
+    Algorithm::QuickSort(ar, size);
+    std::cout << "QuickSort:: Sorted Array" << std::endl;
     printArray(ar, size);
     
     return 0;
@@ -53,7 +69,7 @@ void initArray(int* ar, int size){
     srand (0);
     // Shuffle Array
     for(int j = 0; j < size-2; ++j){
-        Algorithm::Swap(ar[j], ar[rand() % (size - j) + j]);
+        std::swap(ar[j], ar[rand() % (size - j) + j]);
     }
 }
 

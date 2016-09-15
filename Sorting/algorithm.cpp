@@ -1,11 +1,5 @@
 #include "algorithm.h"
 
-void Algorithm::Swap(int& a, int& b){
-    int s = a;
-    a = b;
-    b = s;
-}
-
 /**
  *  Pick 0 - n
  *  Each time find min item in current till the last item
@@ -24,7 +18,7 @@ void Algorithm::SelectionSort(int * ar, int n){
             }
         }
         
-        Algorithm::Swap(ar[i], ar[min]);
+        std::swap(ar[i], ar[min]);
     }
 }
 
@@ -43,7 +37,7 @@ void Algorithm::InsertionSort(int * ar, int n){
     for(int i = 0; i < n; ++i){
         for(int j = i; j > 0; --j){
             if(LESS(ar[j], ar[j-1]))
-                Algorithm::Swap(ar[j], ar[j-1]);
+                std::swap(ar[j], ar[j-1]);
             else
                 break;
         }
@@ -87,7 +81,7 @@ void Algorithm::ShellSort(int * ar, int n){
     while(h >= 1){
         for(int i = h; i < n; ++i){
            for(int j = i; j >= h && LESS(ar[j], ar[j-h]); j -= h){
-              Algorithm::Swap(ar[j], ar[j-h]); 
+              std::swap(ar[j], ar[j-h]); 
            } 
         }
         h /= 3;
@@ -160,4 +154,59 @@ void Algorithm::MergeSort(int * ar, int size){
     int * aux = new int[size];
     Algorithm::MergeSort_helper(ar, aux, 0, size-1);
     delete [] aux;
+}
+
+void Algorithm::MergeSort_BottomUp(int * ar, int size){
+    int * aux = new int[size];
+    
+    for(int i = 1; i < size; i <<= 1){
+        for(int j = 0; j < size - i; j += i << 1){
+            // At the end, we might not have full right partial array
+            // So MIN(j + i<<1 - 1, size -1)
+            Algorithm::Merge(ar, aux, j, j+i-1, std::min(j+(i << 1)-1, size-1));
+        }    
+    }
+    
+    delete [] aux;
+}
+
+int Algorithm::Partition(int * ar, int low, int high){
+    int i = low;
+    int j = high+1;
+    
+    while(true){
+        
+        // LEFT PART
+        while(LESS(ar[++i], ar[low])){
+            if(i == high) break;
+        }
+        
+        // RIGHT PART
+        while(LESS(ar[low], ar[--j])){
+            if(j == low) break;
+        }
+        
+        // CROSS PTR
+        if(i >= j) break;
+        std::swap(ar[i], ar[j]);
+    }
+    
+    std::swap(ar[low], ar[j]);
+    return j;
+}
+
+void Algorithm::QuickSort_helper(int *ar, int low, int high){
+    if(high <= low) return;
+    int p = Algorithm::Partition(ar, low, high);
+    Algorithm::QuickSort_helper(ar, low, p-1);
+    Algorithm::QuickSort_helper(ar, p+1, high);
+}
+
+void Algorithm::QuickSort(int * ar, int size){
+    // Shuffle Array
+    for(int i = size-1; i > 0; --i){
+        std::swap(ar[i], ar[rand() % (i + 1)]);
+    }
+    
+    Algorithm::QuickSort_helper(ar, 0, size-1);
 }
