@@ -2,6 +2,7 @@
 #include <cstdio>
 #include "union_find_v1.h"
 #include "union_find_v2.h"
+#include "union_find_v2.1.h"
 
 int main() {
     /**
@@ -43,7 +44,23 @@ int main() {
     printf("Connect: (4, 3)\n");
     test_v2.Connect(4,3);
     printf("(1,4) Connected ? %s\n", test_v2.isUnion(1,4)?"True":"False");
-    
+ 
+     // Version 2.1
+    // Union O(logN); Connect O(logN)
+    Union_Find_V2_1 test_v2_1(6);
+    printf("V2.1 Size: %i\n", test_v2_1.size());
+    printf("Connect: (1, 2)\n");
+    test_v2_1.Connect(1,2);
+    printf("(1,2) Connected ? %s\n", test_v2_1.isUnion(1,2)?"True":"False");
+    printf("(1,4) Connected ? %s\n", test_v2_1.isUnion(1,4)?"True":"False");
+    printf("Connect: (1, 0)\n");
+    test_v2_1.Connect(1,0);
+    printf("Connect: (3, 2)\n");
+    test_v2_1.Connect(3,2);
+    printf("Connect: (4, 3)\n");
+    test_v2_1.Connect(4,3);
+    printf("(1,4) Connected ? %s\n", test_v2_1.isUnion(1,4)?"True":"False");
+       
     
     return 0;
 }

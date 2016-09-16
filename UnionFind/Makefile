@@ -1,7 +1,7 @@
 # Objects
 OUTPUT_FOLDER=bin
 DRIVER=main.cpp
-OBJS=union_find_v1.cpp union_find_v2.cpp
+OBJS=union_find_v1.cpp union_find_v2.cpp union_find_v2.1.cpp
 
 # Compilers
 GCC=g++-6
